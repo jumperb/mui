@@ -24,7 +24,7 @@ class PageShowcase extends MMenuPage {
       showDialog(MDialogBoxBottomFix2(WidgetContainer(page:PageB())), trans: RouteTransition.rais);
     });
     addCase("半屏页面-固定3", (){
-      showDialog(DialogBoxBottomFix3(WidgetContainer(page:PageB())), trans: RouteTransition.rais);
+      showDialog(MDialogBoxBottomFix3(WidgetContainer(page:PageB())), trans: RouteTransition.rais);
     });    
 
     addCase("导航栏", (){
