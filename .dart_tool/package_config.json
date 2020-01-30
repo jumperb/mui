@@ -158,6 +158,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "vrender",
+      "rootUri": "file:///Users/zct/.pub-cache/git/v-render-aac7b59f272883aa646d42632d70eef49529da29/",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "xml",
       "rootUri": "file:///Users/zct/.pub-cache/hosted/pub.flutter-io.cn/xml-3.5.0",
       "packageUri": "lib/",
@@ -170,7 +176,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-01-28T10:01:30.675005Z",
+  "generated": "2020-01-30T15:47:40.514379Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

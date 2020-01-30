@@ -177,6 +177,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.8"
+  vrender:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: aac7b59f272883aa646d42632d70eef49529da29
+      url: "git@github.com:jumperb/v-render.git"
+    source: git
+    version: "0.0.1"
   xml:
     dependency: transitive
     description:

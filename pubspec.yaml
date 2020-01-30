@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  vrender: 
+    git: 
+      url: "git@github.com:jumperb/v-render.git"
 dev_dependencies:
   flutter_test:
     sdk: flutter

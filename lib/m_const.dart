@@ -1,0 +1,1 @@
+const double m_padding_x = 10.0;
