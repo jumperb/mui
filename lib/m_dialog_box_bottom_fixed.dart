@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mui/m_const.dart';
 
-class DialogBoxBottomFix extends StatelessWidget {
+class MDialogBoxBottomFix extends StatelessWidget {
   final Widget child;
-  DialogBoxBottomFix(this.child);
+  MDialogBoxBottomFix(this.child);
   @override
   Widget build(BuildContext c) {
     var items = List<Widget>();
@@ -45,8 +45,8 @@ class DialogBoxBottomFix extends StatelessWidget {
   }
 }
 
-class DialogBoxBottomFix1 extends DialogBoxBottomFix {
-  DialogBoxBottomFix1(Widget child) : super(child);
+class MDialogBoxBottomFix1 extends MDialogBoxBottomFix {
+  MDialogBoxBottomFix1(Widget child) : super(child);
   @override
   Widget buildTop(BuildContext c) {
     return Center(
@@ -68,8 +68,8 @@ class DialogBoxBottomFix1 extends DialogBoxBottomFix {
   }
 }
 
-class DialogBoxBottomFix2 extends DialogBoxBottomFix {
-  DialogBoxBottomFix2(Widget child) : super(child);
+class MDialogBoxBottomFix2 extends MDialogBoxBottomFix {
+  MDialogBoxBottomFix2(Widget child) : super(child);
   @override
   Widget buildTop(BuildContext c) {
     return Padding(
@@ -93,8 +93,8 @@ class DialogBoxBottomFix2 extends DialogBoxBottomFix {
   }
 }
 
-class DialogBoxBottomFix3 extends DialogBoxBottomFix {
-  DialogBoxBottomFix3(Widget child) : super(child);
+class MDialogBoxBottomFix3 extends MDialogBoxBottomFix {
+  MDialogBoxBottomFix3(Widget child) : super(child);
   @override
   Widget buildTop(BuildContext c) {
     return Padding(
