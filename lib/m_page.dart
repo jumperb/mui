@@ -6,11 +6,12 @@ import 'm_app_bar.dart';
 
 class MPage extends State {
   var title = "标题";
-  bool showBodyOnly = false; //只buildbody不build top和bottom
-  bool fullfillBody = false; //body 填满，沉浸式
+  final bool showBodyOnly; //只buildbody不build top和bottom
+  final bool fullfillBody; //body 填满，沉浸式
   Widget topBar;
   Widget bottomBar;
   Widget allContent;
+  MPage({this.showBodyOnly = false, this.fullfillBody = false});
   Widget buildTopBar(BuildContext c) {
     return MAppBar(title: this.title);
   }

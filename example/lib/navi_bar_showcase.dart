@@ -92,7 +92,7 @@ class NaviBarShowCase extends MMenuPage {
       bar.hideCenter.set(true);
       bar.hideLeft.set(true);
     });
-    addCase("修改中间视图", (){
+    addCase("完全自定义", (){
     });
   }
 }
