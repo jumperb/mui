@@ -10,8 +10,9 @@ class MPage extends State {
   bool fullfillBody = false; //body 填满，沉浸式
   Widget topBar;
   Widget bottomBar;
+  Widget allContent;
   Widget buildTopBar(BuildContext c) {
-    return MAppBar();
+    return MAppBar(title: this.title);
   }
 
   Widget buildBody(BuildContext c) {
@@ -24,8 +25,7 @@ class MPage extends State {
     return null;
   }
 
-  @override
-  Widget build(BuildContext c) {
+  Widget buildAll(BuildContext c) {
     if (showBodyOnly) {
       return buildBody(c);
     }
@@ -92,6 +92,14 @@ class MPage extends State {
         body: Column(children: items)
       );
     }
+  }
+  @override
+  Widget build(BuildContext c) {
+    //避免重复build
+    if (this.allContent == null) {
+      this.allContent = buildAll(c);
+    }
+    return this.allContent;
   }
 
   static PageNavigatorObserver pageNavigatorObserver = PageNavigatorObserver();
