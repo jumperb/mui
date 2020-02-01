@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mui/mui.dart';
 import 'package:mui/m_menu_page.dart';
 import 'package:mui/m_app_bar.dart';
 import 'package:mui/m_animation.dart';
@@ -72,7 +73,7 @@ class NaviBarShowCase extends MMenuPage with TickerProviderStateMixin {
       bar.hideTopbar.set(!bar.hideTopbar.v);
     });
     addCase("沉浸式", (){
-      route(PageC());
+      MUI.route(this.context, PageC());
     });
     addCase("左边按钮变化", (){
       MAppBar bar = this.topBar;

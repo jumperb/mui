@@ -27,8 +27,8 @@ class MDialogBoxBottomFix extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0))),
+                topLeft: Radius.circular(m_radius),
+                topRight: Radius.circular(m_radius))),
         child: SafeArea(
             top: false,
             child: Column(children: items, mainAxisSize: MainAxisSize.min)),
@@ -73,7 +73,7 @@ class MDialogBoxBottomFix2 extends MDialogBoxBottomFix {
   @override
   Widget buildTop(BuildContext c) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(m_padding_x, 0, 0, 0),
+      padding: EdgeInsets.fromLTRB(m_padding, 0, 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -105,7 +105,7 @@ class MDialogBoxBottomFix3 extends MDialogBoxBottomFix {
           MaterialButton(
             minWidth: 0,
             elevation: 0,
-            padding: EdgeInsets.fromLTRB(m_padding_x, 0, m_padding_x, 0),
+            padding: EdgeInsets.fromLTRB(m_padding, 0, m_padding, 0),
             child: Text("取消", style: TextStyle(fontSize: 16)),
             onPressed: () {
               Navigator.of(c).pop();
@@ -118,7 +118,7 @@ class MDialogBoxBottomFix3 extends MDialogBoxBottomFix {
           MaterialButton(
             minWidth: 0,
             elevation: 0,
-            padding: EdgeInsets.fromLTRB(m_padding_x, 0, m_padding_x, 0),
+            padding: EdgeInsets.fromLTRB(m_padding, 0, m_padding, 0),
             child: Text("确定", style: TextStyle(fontSize: 16)),
             onPressed: () {
               Navigator.of(c).pop();

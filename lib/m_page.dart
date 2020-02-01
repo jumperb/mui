@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'm_app_bar.dart';
-
 
 
 class MPage extends State {
@@ -103,78 +101,7 @@ class MPage extends State {
     return this.allContent;
   }
 
-  static PageNavigatorObserver pageNavigatorObserver = PageNavigatorObserver();
-  static RouteTransitionsBuilder transitionsBuilderFromType(RouteTransition t) {
-    return (BuildContext context, Animation<double> animation1,
-        Animation<double> animation2, Widget child) {
-      switch (t) {
-        case RouteTransition.fade:
-          {
-            return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-                    parent: animation1, curve: Curves.fastOutSlowIn)),
-                child: child);
-          }
-        case RouteTransition.push:
-          return null;
-        case RouteTransition.rais:
-          return SlideTransition(
-              position: new Tween<Offset>(
-                begin: const Offset(0.0, 1.0),
-                end: const Offset(0.0, 0.0),
-              ).animate(CurvedAnimation(
-                  parent: animation1, curve: Curves.fastOutSlowIn)),
-              child: child);
-      }
-    };
-  }
-
-  static void sRouteTo(BuildContext context, MPage page,
-      {RouteTransition trans = RouteTransition.push}) {
-    if (trans == RouteTransition.push) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-        return PageWidget(page);
-      }));
-      return;
-    }
-    Navigator.of(context).push(PageRouteBuilder(
-        pageBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> animation2) {
-          return PageWidget(page);
-        },
-        transitionsBuilder: transitionsBuilderFromType(trans)));
-  }
-
-  void route(MPage page, {RouteTransition trans = RouteTransition.push}) {
-    sRouteTo(this.context, page, trans: trans);
-  }
-
-  static void sShowDialog(BuildContext context, Widget child,
-      {RouteTransition trans = RouteTransition.fade}) {
-    showGeneralDialog(
-        context: context,
-        barrierDismissible: true,
-        barrierLabel:
-            MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        barrierColor: Colors.black.withOpacity(0.5),
-        transitionDuration: Duration(milliseconds: 300),
-        pageBuilder: (BuildContext buildContext, Animation<double> animation,
-            Animation<double> secondaryAnimation) {
-          return Material(type: MaterialType.transparency, child: child);
-        },
-        transitionBuilder: transitionsBuilderFromType(trans));
-  }
-
-  void showDialog(Widget child,
-      {RouteTransition trans = RouteTransition.fade}) {
-    sShowDialog(this.context, child, trans: trans);
-  }
-}
-
-enum RouteTransition {
-  push,
-  fade,
-  rais,
+  static PageNavigatorObserver pageNavigatorObserver = PageNavigatorObserver();  
 }
 
 class PageNavigatorObserver extends NavigatorObserver {

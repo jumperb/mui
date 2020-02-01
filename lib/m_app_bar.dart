@@ -114,7 +114,7 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
               height: 48,
               elevation: 0,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.fromLTRB(m_padding_x, 0, m_padding_x, 0),
+              padding: EdgeInsets.fromLTRB(m_padding, 0, m_padding, 0),
               child: VBind(() {
                 if (this.leftButtonChild.v != null)
                   return leftButtonChild.v; //快捷左按钮内部件
@@ -161,7 +161,7 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
               height: 48,
               elevation: 0,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.fromLTRB(m_padding_x, 0, m_padding_x, 0),
+              padding: EdgeInsets.fromLTRB(m_padding, 0, m_padding, 0),
               child: rightButtonChild.v,
               onPressed: () {
                 Navigator.of(c).pop();
