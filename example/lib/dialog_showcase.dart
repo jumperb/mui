@@ -37,17 +37,7 @@ class DialogShowCase extends MMenuPage {
       MUI.toast(this.context, "toast+上下排", icon: Icon(Icons.alarm_on, size: 100,), verticalLayout: true);
     });
 
-    addCase("loading", (){
-      
-    });
-
-    addCase("loading+文字", (){
-      
-    });
-
-    addCase("loading+上下排", (){
-      
-    });
+    
 
     addCase("alert", (){
       
@@ -60,7 +50,17 @@ class DialogShowCase extends MMenuPage {
     addCase("alert+自定义", (){
       
     });
+    addCase("loading", (){
+      
+    });
 
+    addCase("loading+文字", (){
+      
+    });
+
+    addCase("loading+上下排", (){
+      
+    });
     addCase("进度", (){
       
     });
