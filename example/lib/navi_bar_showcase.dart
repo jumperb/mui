@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mui/m_menu_page.dart';
 import 'package:mui/m_app_bar.dart';
+import 'package:mui/m_animation.dart';
+import 'package:mui_example/page_c.dart';
 
-
-class NaviBarShowCase extends MMenuPage {  
+class NaviBarShowCase extends MMenuPage with TickerProviderStateMixin {  
   var bgColorIndex = 0;
   var titleColorIndex = 0;
   var leftChildIndex = 0;
@@ -14,10 +15,14 @@ class NaviBarShowCase extends MMenuPage {
       MAppBar bar = this.topBar;
       bgColorIndex ++;
       if (bgColorIndex % 2 == 1) {
-        bar.color.set(Colors.red);
+        MAnimation.colorTween(bar.color.v, Colors.red, 1000, (Color v){
+          bar.color.set(v);
+        });
       }      
       else {
-        bar.color.set(Colors.white);
+        MAnimation.colorTween(bar.color.v, Colors.white, 1000, (Color v){
+          bar.color.set(v);
+        });
       }
     });
     addCase("前景色变化", (){      
@@ -50,10 +55,14 @@ class NaviBarShowCase extends MMenuPage {
     addCase("高度变化", (){
       MAppBar bar = this.topBar;
       if (bar.height.v == 20) {
-        bar.height.set(56);
+        MAnimation.tween<double>(bar.height.v, 56, 1000, (double v){
+          bar.height.set(v);
+        });        
       }
       else {
-        bar.height.set(20);
+        MAnimation.tween<double>(bar.height.v, 20, 1000, (double v){
+          bar.height.set(v);
+        });        
       }
 
     });
@@ -63,6 +72,7 @@ class NaviBarShowCase extends MMenuPage {
       bar.hideTopbar.set(!bar.hideTopbar.v);
     });
     addCase("沉浸式", (){
+      route(PageC());
     });
     addCase("左边按钮变化", (){
       MAppBar bar = this.topBar;

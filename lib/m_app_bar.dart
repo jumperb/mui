@@ -46,14 +46,44 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
   //
   MAppBar(
       {String title,
-      Color color,
+      double titleFontSize,
+      Widget leftButtonChild,
+      Widget rightButtonChild,
+      Color frontColor,
       double height,
-      Brightness statusBarBrightness}) {
+      Color color,
+      bool hideTopbar,
+      Brightness statusBarBrightness,
+      bool hideStatusBar,
+      bool hideLeft,
+      Widget outerLeftItem,
+      bool hideCenter,
+      double centerPadding,
+      Alignment centerAlign,
+      Widget outerCenterItem,
+      bool hideRight,
+      Widget outerRightItem,
+      Color lineColor}) {
     if (title != null) this.title.set(title);
+    if (titleFontSize != null) this.titleFontSize.set(titleFontSize);
+    if (leftButtonChild != null) this.leftButtonChild.set(leftButtonChild);
+    if (rightButtonChild != null) this.rightButtonChild.set(rightButtonChild);
+    if (frontColor != null) this.frontColor.set(frontColor);
     if (height != null) this.height.set(height);
     if (color != null) this.color.set(color);
+    if (hideTopbar != null) this.hideTopbar.set(hideTopbar);
     if (statusBarBrightness != null)
       this.statusBarBrightness.set(statusBarBrightness);
+    if (hideStatusBar != null) this.hideStatusBar.set(hideStatusBar);
+    if (hideLeft != null) this.hideLeft.set(hideLeft);
+    if (outerLeftItem != null) this.outerLeftItem.set(outerLeftItem);
+    if (hideCenter != null) this.hideCenter.set(hideCenter);
+    if (centerPadding != null) this.centerPadding.set(centerPadding);
+    if (centerAlign != null) this.centerAlign.set(centerAlign);
+    if (outerCenterItem != null) this.outerCenterItem.set(outerCenterItem);
+    if (hideRight != null) this.hideRight.set(hideRight);
+    if (outerRightItem != null) this.outerRightItem.set(outerRightItem);
+    if (lineColor != null) this.lineColor.set(lineColor);
 
     //状态栏深浅
     this.statusBarBrightness.then((dynamic brightness) {
@@ -148,21 +178,18 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext c) {
     return Material(
-        child: Material(
             type: MaterialType.transparency,
-            child: VBind(() {
-              return Visibility(
-                  visible: !this.hideTopbar.v,
-                  child: Container(
-                    color: this.color.v,
-                    child: SafeArea(
-                        top: true,
-                        bottom: false,
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: this.height.v,
-                          child: VBind(() {
-                            return Column(
+            child: VBind(() => Visibility(
+                visible: !this.hideTopbar.v,
+                child: Container(
+                  color: this.color.v,
+                  child: SafeArea(
+                      top: true,
+                      bottom: false,
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: this.height.v,
+                        child: VBind(() => Column(
                               mainAxisSize: MainAxisSize.max,
                               children: <Widget>[
                                 Expanded(
@@ -185,17 +212,13 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
                                     )
                                   ],
                                 )),
-                                VBind(() {
-                                  return Divider(
-                                      height:
-                                          1 / MediaQuery.of(c).devicePixelRatio,
-                                      color: this.lineColor.v);
-                                }),
+                                VBind(() => Divider(
+                                    height:
+                                        1 / MediaQuery.of(c).devicePixelRatio,
+                                    color: this.lineColor.v)),
                               ],
-                            );
-                          }),
-                        )),
-                  ));
-            })));
+                            )),
+                      )),
+                ))));
   }
 }

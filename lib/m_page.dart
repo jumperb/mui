@@ -6,8 +6,8 @@ import 'm_app_bar.dart';
 
 class MPage extends State {
   var title = "标题";
-  final bool showBodyOnly; //只buildbody不build top和bottom
-  final bool fullfillBody; //body 填满，沉浸式
+  bool showBodyOnly; //只buildbody不build top和bottom
+  bool fullfillBody; //body 填满，沉浸式
   Widget topBar;
   Widget bottomBar;
   Widget allContent;
@@ -33,16 +33,7 @@ class MPage extends State {
 
     if (fullfillBody) {
       final items = List<Widget>();
-      this.topBar = buildTopBar(c);
-      if (this.topBar != null) {
-        final topbarCon = Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: this.topBar,
-        );
-        items.add(topbarCon);
-      }
+      
 
       final body = buildBody(c);
       if (body != null) {
@@ -55,7 +46,16 @@ class MPage extends State {
         );
         items.add(bodyCon);
       }
-
+      this.topBar = buildTopBar(c);
+      if (this.topBar != null) {
+        final topbarCon = Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: this.topBar,
+        );
+        items.add(topbarCon);
+      }
       this.bottomBar = buildBottomBar(c);
       if (this.bottomBar != null) {
         final bottomBarCon = Positioned(
