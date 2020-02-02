@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:mui/m_const.dart';
+import 'package:vrender/vrender.dart';
+import 'mui.dart';
 
 class MDialogBoxBottomFix extends StatelessWidget {
   final Widget child;
-  MDialogBoxBottomFix(this.child);
+  final Color lineColor;
+  final VO<BuildContext> c = VO(null);
+  MDialogBoxBottomFix(this.child, {this.lineColor = Colors.grey});
+
+  MDialogBoxBottomFix show(BuildContext c) {
+    this.c.set(c);
+    MUI.showDialog(c, this, trans: RouteTransition.rais);
+    return this;
+  }
+  void dismiss() {
+    Navigator.of(this.c.v).pop();
+  }
+
+
   @override
   Widget build(BuildContext c) {
     var items = List<Widget>();
@@ -12,11 +27,14 @@ class MDialogBoxBottomFix extends StatelessWidget {
     if (head != null) {
       items.add(SizedBox(height: 44, width: double.infinity, child: head));
     }
-    if (child != null) {
-      items.add(child);
-    }
+    
+    items.add(buildCenter(c));
+    
     final tail = buildBottom(c);
     if (tail != null) {
+      items.add(Divider(
+                height: 1 / MediaQuery.of(c).devicePixelRatio,
+                color: this.lineColor));
       items.add(SizedBox(height: 44, width: double.infinity, child: tail));
     }
 
@@ -39,7 +57,9 @@ class MDialogBoxBottomFix extends StatelessWidget {
   Widget buildTop(BuildContext c) {
     return null;
   }
-
+  Widget buildCenter(BuildContext c) {
+    return this.child;
+  }
   Widget buildBottom(BuildContext c) {
     return null;
   }

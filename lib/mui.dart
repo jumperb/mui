@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'm_page.dart';
 import 'm_dialog_toast.dart';
+import 'm_dialog_alert.dart';
+import 'm_dialog_actionsheet.dart';
 
 enum RouteTransition {
   push,
@@ -67,7 +69,7 @@ class MUI {
         barrierDismissible: true,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        barrierColor: Colors.black.withOpacity(0.5),
+        barrierColor: Colors.black.withOpacity(0.1),
         transitionDuration: Duration(milliseconds: 300),
         pageBuilder: (BuildContext buildContext, Animation<double> animation,
             Animation<double> secondaryAnimation) {
@@ -83,18 +85,25 @@ class MUI {
       bool verticalLayout = false,
       double minWidth = 120.0,
       double maxWidth = 300.0}) {
-    showDialog(
-        context,
-        MDialogToast(title,
+    final toast = MDialogToast(title,
             align: align,
             maxlines: maxlines,
             icon: icon,
             verticalLayout: verticalLayout,
             minWidth: minWidth,
-            maxWidth: maxWidth));
+            maxWidth: maxWidth)
+        .show(context);
     Timer(Duration(milliseconds: 2000), () {
-      Navigator.of(context).pop();
+      toast.dismiss();
     });
   }
-  static void loading() {}
+
+  static MDialogAlert alert({String title, String subTitle, Widget topWidget}) {
+    return MDialogAlert(title:title, subTitle:subTitle, topWidget: topWidget);
+  }
+
+  static MDialogActionSheet actionSheet({String title}) {
+    return MDialogActionSheet(title:title);
+  }
+
 }
