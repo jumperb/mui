@@ -6,16 +6,19 @@ import 'package:vrender/vrender.dart';
 
 class MDialogBaseWindow extends StatelessWidget {
   final Alignment align;
+  final Color backgroundColor;
   final EdgeInsets padding;
   final double interval = 12.0;
   final double minWidth;
   final double maxWidth;
+  
   final VO<BuildContext> c = VO(null);
   MDialogBaseWindow(
       {this.align = Alignment.center,
+      this.backgroundColor = Colors.white,
       this.padding = const EdgeInsets.fromLTRB(20, 20, 20, 20),
       this.minWidth = 120.0,
-      this.maxWidth = 300.0});
+      this.maxWidth = 300.0,});
   MDialogBaseWindow show(BuildContext c) {
     this.c.set(c);
     MUI.showDialog(c, this);
@@ -41,7 +44,7 @@ class MDialogBaseWindow extends StatelessWidget {
         child: Container(
           constraints: BoxConstraints(minWidth: _minWidth, maxWidth: _maxWidth),
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: backgroundColor,
               borderRadius: isCenter
                   ? BorderRadius.all(Radius.circular(m_radius))
                   : null),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mui/m_menu_page.dart';
 import 'package:mui_example/page_showcase.dart';
 import 'package:mui/mui.dart';
-import 'package:mui_example/dialog_showcase.dart';
+import 'dialog_showcase.dart';
 import 'package:mui/m_app_bar.dart';
+import 'ui_showcase.dart';
 
 class TestMenu extends MMenuPage {  
   TestMenu(): super() {
@@ -16,8 +17,8 @@ class TestMenu extends MMenuPage {
       MUI.route(this.context, DialogShowCase());
     });
 
-    addCase("浮层", (){
-      MUI.route(this.context, DialogShowCase());
+    addCase("常用UI", (){
+      MUI.route(this.context, UIShowCase());
     });
   }
   

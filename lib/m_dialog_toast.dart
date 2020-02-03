@@ -9,11 +9,11 @@ class MDialogToast extends MDialogBaseWindow {
   MDialogToast(this.title,
       {this.maxlines = 1,
       this.icon,
-      Alignment align,
+      Alignment align = Alignment.center,
       this.verticalLayout = false,
-      double minWidth,
-      double maxWidth})
-      : super(align: align, minWidth: minWidth, maxWidth: maxWidth);
+      double minWidth = 120,
+      double maxWidth = 300})
+      : super(align: align, backgroundColor: const Color.fromARGB(204, 0, 0, 0), minWidth: minWidth, maxWidth: maxWidth);
 
   @override
   Widget buildContent(BuildContext c) {
@@ -25,7 +25,7 @@ class MDialogToast extends MDialogBaseWindow {
     final text = Text(title,
         maxLines: maxlines,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 16));
+        style: TextStyle(fontSize: 16, color: Colors.white));
     items.add(Flexible(child: text));
     if (verticalLayout) {
       return Column(

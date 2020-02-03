@@ -6,6 +6,7 @@ import 'm_page.dart';
 import 'm_dialog_toast.dart';
 import 'm_dialog_alert.dart';
 import 'm_dialog_actionsheet.dart';
+import 'm_dialog_progressor.dart';
 
 enum RouteTransition {
   push,
@@ -99,11 +100,59 @@ class MUI {
   }
 
   static MDialogAlert alert({String title, String subTitle, Widget topWidget}) {
-    return MDialogAlert(title:title, subTitle:subTitle, topWidget: topWidget);
+    return MDialogAlert(title: title, subTitle: subTitle, topWidget: topWidget);
   }
 
   static MDialogActionSheet actionSheet({String title}) {
-    return MDialogActionSheet(title:title);
+    return MDialogActionSheet(title: title);
   }
 
+  static MDialogProgressor loading(BuildContext context,
+      {String text,
+      double value,
+      Color progressorColor = Colors.white,
+      Color progressorBgColor = const Color(0xff444444),
+      double progressorSize = 40.0,
+      Color backgroundColor = const Color.fromARGB(204, 0, 0, 0),
+      double strokeWidth = 8,
+      bool verticalLayout = false,
+      double minWidth = 40,
+      double maxWidth = 300}) {
+    return MDialogProgressor(
+            value: value,
+            text: text,
+            progressorColor: progressorColor,
+            progressorBgColor: progressorBgColor,
+            progressorSize: progressorSize,
+            backgroundColor: backgroundColor,
+            strokeWidth: strokeWidth,
+            verticalLayout: verticalLayout,
+            minWidth: minWidth,
+            maxWidth: maxWidth)
+        .show(context);
+  }
+
+  static MDialogProgressor progress(BuildContext context, double value,
+      {String text,
+      Color progressorColor = Colors.white,
+      Color progressorBgColor = const Color(0xff444444),
+      double progressorSize = 40.0,
+      Color backgroundColor = const Color.fromARGB(204, 0, 0, 0),
+      double strokeWidth = 8,
+      bool verticalLayout = false,
+      double minWidth = 40,
+      double maxWidth = 300}) {
+    return MDialogProgressor(
+            value: value,
+            text: text,
+            progressorColor: progressorColor,
+            progressorBgColor: progressorBgColor,
+            progressorSize: progressorSize,
+            backgroundColor: backgroundColor,
+            strokeWidth: strokeWidth,
+            verticalLayout: verticalLayout,
+            minWidth: minWidth,
+            maxWidth: maxWidth)
+        .show(context);
+  }
 }

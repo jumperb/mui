@@ -33,7 +33,7 @@ class DialogShowCase extends MMenuPage {
           align: Alignment.topCenter, maxlines: 3);
     });
     addCase("toast+图标", () {
-      MUI.toast(this.context, "toast+图标", icon: Icon(Icons.alarm_on));
+      MUI.toast(this.context, "toast+图标", icon: Icon(Icons.alarm_on, color: Colors.white));
     });
 
     addCase("toast+上下排", () {
@@ -41,6 +41,7 @@ class DialogShowCase extends MMenuPage {
           icon: Icon(
             Icons.alarm_on,
             size: 100,
+            color: Colors.white,
           ),
           verticalLayout: true);
     });
